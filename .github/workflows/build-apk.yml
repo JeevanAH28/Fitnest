@@ -39,7 +39,7 @@ jobs:
         run: gradle :app:assembleDebug --stacktrace
 
       - name: Upload installable APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: FitNest-debug-apk
           path: fitness-companion/app/build/outputs/apk/debug/app-debug.apk
