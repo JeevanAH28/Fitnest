@@ -3,7 +3,8 @@ name: Build FitNest APK
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -14,16 +15,16 @@ jobs:
 
     steps:
       - name: Check out source
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Java 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '17'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Install Android 36 build tools
         run: sdkmanager --install "platforms;android-36" "build-tools;35.0.0"
@@ -39,7 +40,7 @@ jobs:
         run: gradle :app:assembleDebug --stacktrace
 
       - name: Upload installable APK
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: FitNest-debug-apk
           path: fitness-companion/app/build/outputs/apk/debug/app-debug.apk
