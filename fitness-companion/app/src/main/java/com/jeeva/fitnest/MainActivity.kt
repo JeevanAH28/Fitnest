@@ -25,7 +25,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.weight
+PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -169,7 +169,8 @@ class MainActivity : ComponentActivity() {
                     onProgressPhoto = {
                         progressPhotoPicker.launch(
                             ActivityResultContracts.PickVisualMedia.Request(
-                                ActivityResultContracts.PickVisualMedia.ImageOnly
+                             PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                               
                             )
                         )
                     },
